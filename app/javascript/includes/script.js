@@ -17,6 +17,7 @@ function fetchData() {
       <h2>${data.user.first_name}</h2>
       `
     })
+
     document.querySelector("#first_name").innerHTML = firstName;
 
     var timeClock = data.shifts.map(shift => {
@@ -31,6 +32,7 @@ function fetchData() {
       </div>
       `
     })
+
     document.querySelector("#time_clock").innerHTML = timeClock;
 
     var timeClockButton = document.querySelector('#time_clock_btn')

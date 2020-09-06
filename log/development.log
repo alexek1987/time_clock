@@ -33926,3 +33926,187 @@ Processing by Api::V1::JobsController#show as JSON
 Completed 200 OK in 186ms (Views: 88.6ms | ActiveRecord: 43.5ms | Allocations: 26506)
 
 
+Started GET "/" for ::1 at 2020-09-07 00:40:36 +0700
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 94)
+DEPRECATION WARNING: autoprefixer-rails was deprected. Migration guide:
+https://github.com/ai/autoprefixer-rails/wiki/Deprecated (called from _app_views_layouts_application_html_erb__4259046520042256623_70263627271380 at /Users/alexander/code/alexek1987/time_clock_api_v1/app/views/layouts/application.html.erb:9)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_navbar.html.erb (Duration: 3.4ms | Allocations: 454)
+  Rendered shared/_flashes.html.erb (Duration: 1.3ms | Allocations: 182)
+Completed 200 OK in 2805ms (Views: 2802.5ms | ActiveRecord: 0.0ms | Allocations: 94897)
+
+
+Started GET "/api/v1/jobs/2" for ::1 at 2020-09-07 00:40:39 +0700
+Processing by Api::V1::JobsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.8ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:52:in `set_job'
+  Rendering api/v1/jobs/show.json.jbuilder
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "shifts" WHERE "shifts"."job_id" = $1[0m  [["job_id", 2]]
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:2
+  [1m[36mShift Load (3.9ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."job_id" = $1 ORDER BY "shifts"."id" DESC LIMIT $2[0m  [["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:3
+  [1m[36mUser Load (11.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:22
+  Rendered api/v1/jobs/show.json.jbuilder (Duration: 42.9ms | Allocations: 2844)
+Completed 200 OK in 73ms (Views: 27.4ms | ActiveRecord: 27.1ms | Allocations: 4333)
+
+
+Started GET "/api/v1/jobs/2/new-time-entry" for ::1 at 2020-09-07 00:40:42 +0700
+Started GET "/api/v1/jobs/2" for ::1 at 2020-09-07 00:40:42 +0700
+Processing by Api::V1::JobsController#new_time_entry as JSON
+  Parameters: {"id"=>"2", "job"=>{}}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mike@brown.com"], ["LIMIT", 1]]
+Processing by Api::V1::JobsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:52:in `set_job'
+  [1m[36mJob Load (1.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:52:in `set_job'
+  Rendering api/v1/jobs/show.json.jbuilder
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/policies/job_policy.rb:21:in `new_time_entry?'
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "shifts" WHERE "shifts"."job_id" = $1[0m  [["job_id", 2]]
+  [1m[36mShift Load (0.5ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."job_id" = $1 ORDER BY "shifts"."id" DESC LIMIT $2[0m  [["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:2
+  ↳ app/controllers/api/v1/jobs_controller.rb:33:in `new_time_entry'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+  [1m[36mShift Load (0.9ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."job_id" = $1 ORDER BY "shifts"."id" DESC LIMIT $2[0m  [["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:3
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShift Update (2.8ms)[0m  [1m[33mUPDATE "shifts" SET "clock_out" = $1, "updated_at" = $2 WHERE "shifts"."id" = $3[0m  [["clock_out", "2020-09-06 17:40:42.307877"], ["updated_at", "2020-09-06 17:40:42.310548"], ["id", 103]]
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:22
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+  Rendered api/v1/jobs/show.json.jbuilder (Duration: 18.7ms | Allocations: 7135)
+Completed 200 OK in 31ms (Views: 15.9ms | ActiveRecord: 6.0ms | Allocations: 11195)
+
+
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+No template found for Api::V1::JobsController#new_time_entry, rendering head :no_content
+Completed 204 No Content in 63ms (ActiveRecord: 13.2ms | Allocations: 21017)
+
+
+Started GET "/api/v1/jobs/2/new-time-entry" for ::1 at 2020-09-07 00:40:43 +0700
+Started GET "/api/v1/jobs/2" for ::1 at 2020-09-07 00:40:44 +0700
+Processing by Api::V1::JobsController#new_time_entry as JSON
+Processing by Api::V1::JobsController#show as JSON
+  Parameters: {"id"=>"2", "job"=>{}}
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mike@brown.com"], ["LIMIT", 1]]
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:52:in `set_job'
+  Rendering api/v1/jobs/show.json.jbuilder
+  [1m[36mJob Load (2.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:52:in `set_job'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "shifts" WHERE "shifts"."job_id" = $1[0m  [["job_id", 2]]
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:2
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/policies/job_policy.rb:21:in `new_time_entry?'
+  [1m[36mShift Load (0.8ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."job_id" = $1 ORDER BY "shifts"."id" DESC LIMIT $2[0m  [["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:3
+  [1m[36mShift Load (1.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."job_id" = $1 ORDER BY "shifts"."id" DESC LIMIT $2[0m  [["job_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:33:in `new_time_entry'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:22
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  Rendered api/v1/jobs/show.json.jbuilder (Duration: 11.8ms | Allocations: 5347)
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+Completed 200 OK in 18ms (Views: 11.4ms | ActiveRecord: 2.7ms | Allocations: 8852)
+
+
+  [1m[36mJob Load (0.9ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+  [1m[36mShift Create (0.9ms)[0m  [1m[32mINSERT INTO "shifts" ("clock_in", "job_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["clock_in", "2020-09-06 17:40:44.024786"], ["job_id", 2], ["user_id", 1], ["created_at", "2020-09-06 17:40:44.036263"], ["updated_at", "2020-09-06 17:40:44.036263"]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+No template found for Api::V1::JobsController#new_time_entry, rendering head :no_content
+Completed 204 No Content in 38ms (ActiveRecord: 13.7ms | Allocations: 13312)
+
+
+Started GET "/api/v1/jobs/2/new-time-entry" for ::1 at 2020-09-07 00:41:21 +0700
+Started GET "/api/v1/jobs/2" for ::1 at 2020-09-07 00:41:21 +0700
+Processing by Api::V1::JobsController#show as JSON
+  Parameters: {"id"=>"2"}
+Processing by Api::V1::JobsController#new_time_entry as JSON
+  Parameters: {"id"=>"2", "job"=>{}}
+  [1m[36mJob Load (1.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mike@brown.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:52:in `set_job'
+  Rendering api/v1/jobs/show.json.jbuilder
+  [1m[36mJob Load (1.9ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "shifts" WHERE "shifts"."job_id" = $1[0m  [["job_id", 2]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:52:in `set_job'
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:2
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShift Load (0.4ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."job_id" = $1 ORDER BY "shifts"."id" DESC LIMIT $2[0m  [["job_id", 2], ["LIMIT", 1]]
+  ↳ app/policies/job_policy.rb:21:in `new_time_entry?'
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:3
+  [1m[36mShift Load (2.3ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."job_id" = $1 ORDER BY "shifts"."id" DESC LIMIT $2[0m  [["job_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:22
+  ↳ app/controllers/api/v1/jobs_controller.rb:33:in `new_time_entry'
+  Rendered api/v1/jobs/show.json.jbuilder (Duration: 12.8ms | Allocations: 4865)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 12.7ms | ActiveRecord: 3.4ms | Allocations: 8107)
+
+
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+  [1m[36mShift Update (0.9ms)[0m  [1m[33mUPDATE "shifts" SET "clock_out" = $1, "updated_at" = $2 WHERE "shifts"."id" = $3[0m  [["clock_out", "2020-09-06 17:41:21.907541"], ["updated_at", "2020-09-06 17:41:21.910263"], ["id", 104]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+No template found for Api::V1::JobsController#new_time_entry, rendering head :no_content
+Completed 204 No Content in 35ms (ActiveRecord: 14.0ms | Allocations: 11447)
+
+
+Started GET "/api/v1/jobs/2/new-time-entry" for ::1 at 2020-09-07 00:41:24 +0700
+Started GET "/api/v1/jobs/2" for ::1 at 2020-09-07 00:41:24 +0700
+Processing by Api::V1::JobsController#new_time_entry as JSON
+Processing by Api::V1::JobsController#show as JSON
+  Parameters: {"id"=>"2", "job"=>{}}
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mike@brown.com"], ["LIMIT", 1]]
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:52:in `set_job'
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering api/v1/jobs/show.json.jbuilder
+  ↳ app/controllers/api/v1/jobs_controller.rb:52:in `set_job'
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "shifts" WHERE "shifts"."job_id" = $1[0m  [["job_id", 2]]
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:2
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/policies/job_policy.rb:21:in `new_time_entry?'
+  [1m[36mShift Load (1.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."job_id" = $1 ORDER BY "shifts"."id" DESC LIMIT $2[0m  [["job_id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:3
+  [1m[36mShift Load (0.8ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."job_id" = $1 ORDER BY "shifts"."id" DESC LIMIT $2[0m  [["job_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:33:in `new_time_entry'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/v1/jobs/show.json.jbuilder:22
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  Rendered api/v1/jobs/show.json.jbuilder (Duration: 12.4ms | Allocations: 4701)
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+Completed 200 OK in 18ms (Views: 10.6ms | ActiveRecord: 4.3ms | Allocations: 8639)
+
+
+  [1m[36mJob Load (0.8ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+  [1m[36mShift Create (2.2ms)[0m  [1m[32mINSERT INTO "shifts" ("clock_in", "job_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["clock_in", "2020-09-06 17:41:24.224700"], ["job_id", 2], ["user_id", 1], ["created_at", "2020-09-06 17:41:24.234540"], ["updated_at", "2020-09-06 17:41:24.234540"]]
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/jobs_controller.rb:46:in `new_time_entry'
+No template found for Api::V1::JobsController#new_time_entry, rendering head :no_content
+Completed 204 No Content in 39ms (ActiveRecord: 14.2ms | Allocations: 13046)
+
+

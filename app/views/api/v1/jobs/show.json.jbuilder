@@ -24,8 +24,3 @@ if last_shift
     end
   end
 end
-
-# json.people(@people) do |person|
-#   json.name person.name
-#   json.age calculate_age(person.birthday)
-# end
