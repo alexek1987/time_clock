@@ -1,0 +1,47 @@
+// Specific CSS for your home-page
+*{
+  margin: 0;
+
+}
+
+h1 {
+  font-family:  'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
+  color: #777777;
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-family:  'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 26px;
+  color: #777777;
+ }
+
+h3 {
+  font-family:  'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+  color: #777777;
+}
+
+p {
+  font-family:  'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+  color: #777777;
+}
+
+.time-display > div {
+  margin-right: 140px;
+  margin-left: 14px;
+}

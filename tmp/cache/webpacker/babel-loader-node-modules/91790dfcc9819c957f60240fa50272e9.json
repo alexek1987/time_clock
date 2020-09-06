@@ -1,0 +1,1 @@
+{"ast":null,"code":"console.log('im working');","map":{"version":3,"sources":["/Users/alexander/code/alexek1987/job_api/app/javascript/includes/script.js"],"names":["console","log"],"mappings":"AAAAA,OAAO,CAACC,GAAR,CAAY,YAAZ","sourcesContent":["console.log('im working')"]},"metadata":{},"sourceType":"module"}
