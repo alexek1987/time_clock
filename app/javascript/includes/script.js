@@ -1,5 +1,5 @@
 function fetchData() {
-  fetch("http://localhost:3000/api/v1/jobs/2")
+  fetch("http://localhost:3000/api/v1/jobs/1")
   .then(response => {
     if (!response.ok) {
       throw Error("An error occurred. Please try again.")
@@ -50,12 +50,12 @@ function fetchData() {
 fetchData()
 
 function createNewTimeEntry() {
-  fetch("http://localhost:3000/api/v1/jobs/2/new-time-entry", {
+  fetch("http://localhost:3000/api/v1/jobs/1/new-time-entry", {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       'X-User-Email': 'mike@brown.com',
-      'X-User-Token': 'ZxFkx33i9eqsZZZ-jKEp'
+      'X-User-Token': 'DE4bQxntuwNSaYfcrnSy'
     }
   })
   .then(response => {

@@ -31,7 +31,6 @@ class Api::V1::JobsController < Api::V1::BaseController
 
   def new_time_entry
     last_shift = @job.shifts.last
-
     if (last_shift && last_shift.clock_out) || !last_shift
       shift = Shift.new({
         job_id: @job.id,
@@ -42,7 +41,6 @@ class Api::V1::JobsController < Api::V1::BaseController
       shift = last_shift
       shift.clock_out = Time.now
     end
-
     shift.save
   end
 
@@ -58,7 +56,7 @@ class Api::V1::JobsController < Api::V1::BaseController
   end
 
   def render_error
-    render json: { errors: @restaurant.errors.full_messages },
+    render json: { errors: @job.errors.full_messages },
       status: :unprocessable_entity
   end
 end
