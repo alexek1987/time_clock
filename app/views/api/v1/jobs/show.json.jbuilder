@@ -7,13 +7,13 @@ if last_shift
     json.id shift.id
 
     if shift.clock_in
-      json.clock_in shift.clock_in.strftime("%I:%M %p")
+      json.clock_in shift.clock_in.strftime("%H:%M:%S")
     else
       json.clock_in '—'
     end
 
     if shift.clock_out
-      json.clock_out shift.clock_out.strftime("%I:%M %p")
+      json.clock_out shift.clock_out.strftime("%H:%M:%S")
     else
       json.clock_out '—'
     end
